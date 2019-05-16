@@ -20,9 +20,6 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 
-	<!-- 配置首页 -->
-	<!-- <mvc:view-controller path="/" view-name="/index" /> -->
-
 	<!-- 消息转换器配置，解决后台传到前台乱码问题 -->
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">

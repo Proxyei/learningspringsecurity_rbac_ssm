@@ -263,12 +263,17 @@ Caused by: java.util.zip.ZipException: invalid LOC header (bad signature)
 信息: 正在摧毁协议处理器 ["ajp-nio-8009"]
 
 
-----------原因：
+----原因：
 POM文件 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>${spring.version}</version>
+			<version>4.3.21.RELEASE}</version>
 		</dependency> 
-引入了但是没有配置datasource
+		
+		sspring-jdbc4.3.21有问题
 
+教训：
+排除错误步骤：
+配置文件是否出错-配置的文字是否写错-jar包是否有问题，换个jar试试？
+------
