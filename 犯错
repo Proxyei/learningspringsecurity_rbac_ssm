@@ -277,3 +277,12 @@ POM文件
 排除错误步骤：
 配置文件是否出错-配置的文字是否写错-jar包是否有问题，换个jar试试？
 ------
+
+
+犯错2：		
+<!-- <property name="maxActive" value="10"></property> 
+<property name="maxWait" value="30"></property> -->
+----原因：设置等待时间太小，maxwait单位是ms 
+		
+
+
