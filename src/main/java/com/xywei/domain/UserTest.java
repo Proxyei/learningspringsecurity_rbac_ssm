@@ -1,7 +1,13 @@
 package com.xywei.domain;
 
-public class UserTest {
+import java.io.Serializable;
 
+public class UserTest implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4876333281609919547L;
 	private Integer id;
 	private String name;
 

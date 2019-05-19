@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xywei.dao.TestDao;
+import com.xywei.domain.UserTest;
+import com.xywei.mapper.UserTestMapper2;
 import com.xywei.service.TestService;
 
 @Service
@@ -11,6 +13,9 @@ public class testServiceImpl implements TestService {
 
 	@Autowired
 	private TestDao testDaoImpl;
+
+	@Autowired
+	private UserTestMapper2 userTestMapper2;
 
 	@Override
 	public void test() {
@@ -21,6 +26,12 @@ public class testServiceImpl implements TestService {
 			testDaoImpl.test();
 		}
 
+	}
+
+	@Override
+	public UserTest getUserTest() {
+
+		return userTestMapper2.getUserTest();
 	}
 
 }
