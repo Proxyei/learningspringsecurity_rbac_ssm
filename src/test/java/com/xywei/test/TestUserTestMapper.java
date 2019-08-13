@@ -6,12 +6,12 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.xywei.domain.UserTest;
-import com.xywei.mapper.UserTestMapper;
+import com.xywei.mapper.UserTestMapper2;
 
 public class TestUserTestMapper extends TestUnit {
 
 	@Autowired
-	private UserTestMapper userTestMapper;
+	private UserTestMapper2 userTestMapper;
 
 //	@Autowired
 //	private JdbcTemplate jdbcTemplate;

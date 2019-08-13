@@ -5,7 +5,7 @@
 <mapper namespace="com.xywei.mapper.UserTestMapper2">
 	<cache></cache>
 
-	<select id="getUserTest" resultType="com.xywei.domain.UserTest">
+	<select id="getUserTest" resultType="userTest">
 		select * from user_test;
 	</select>
 

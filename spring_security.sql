@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50172
 File Encoding         : 65001
 
-Date: 2019-08-13 13:17:49
+Date: 2019-08-13 15:16:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -84,10 +84,10 @@ CREATE TABLE `sys_user` (
   `password` varchar(255) NOT NULL,
   `createDate` date DEFAULT NULL,
   `lastLoginTime` datetime DEFAULT NULL,
-  `enabled` char(1) NOT NULL DEFAULT '1' COMMENT '1=true，表示禁用，0表示false，表示激活可用，下同',
-  `accountNonExpired` char(1) NOT NULL DEFAULT '1',
-  `accountNonLocked` char(1) NOT NULL DEFAULT '1',
-  `credentialNonExpired` char(1) NOT NULL DEFAULT '1',
+  `enabled` int(1) NOT NULL DEFAULT '1' COMMENT '1=true，表示禁用，0表示false，表示激活可用，下同',
+  `accountNonExpired` int(1) NOT NULL DEFAULT '1',
+  `accountNonLocked` int(1) NOT NULL DEFAULT '1',
+  `credentialsNonExpired` int(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
