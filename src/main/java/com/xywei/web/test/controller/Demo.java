@@ -1,5 +1,7 @@
 package com.xywei.web.test.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +25,7 @@ public class Demo {
 
 	@RequestMapping("userTest")
 	public String toTest2(Model model) {
-		UserTest userTest = testServiceImpl.getUserTest();
+		List<UserTest> userTest = testServiceImpl.getUserTest();
 		model.addAttribute("model", userTest);
 		return "test";
 	}

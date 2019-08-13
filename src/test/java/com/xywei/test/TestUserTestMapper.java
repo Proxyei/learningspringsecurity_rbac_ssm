@@ -1,5 +1,7 @@
 package com.xywei.test;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,17 +13,15 @@ public class TestUserTestMapper extends TestUnit {
 	@Autowired
 	private UserTestMapper userTestMapper;
 
-
 //	@Autowired
 //	private JdbcTemplate jdbcTemplate;
 
 	@Test
 	public void test1() {
 
-		 System.out.println(userTestMapper == null);
-		
-		 UserTest user = userTestMapper.getUserTest();
-		
+		System.out.println(userTestMapper == null);
+
+		List<UserTest> user = userTestMapper.getUserTest();
 
 //		List<UserTest> users =  jdbcTemplate.query("select * from user_test", new RowMapper<UserTest>() {
 //

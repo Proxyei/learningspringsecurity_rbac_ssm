@@ -1,5 +1,7 @@
 package com.xywei.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +31,7 @@ public class testServiceImpl implements TestService {
 	}
 
 	@Override
-	public UserTest getUserTest() {
+	public List<UserTest> getUserTest() {
 
 		return userTestMapper2.getUserTest();
 	}
