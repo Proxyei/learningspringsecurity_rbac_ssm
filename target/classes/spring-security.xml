@@ -14,18 +14,18 @@
 	<!-- 角色必须以ROLE_开头 -->
 	<security:http>
 		<!-- 首页放行 -->
-		<security:intercept-url pattern="/" access="hasAnyRole('ROLE_A','ROLE_B')" />
-		<security:intercept-url pattern="/index" access="hasAnyRole('ROLE_A','ROLE_B')" />
+		<security:intercept-url pattern="/" access="isFullyAuthenticated()" />
+		<security:intercept-url pattern="/index" access="isFullyAuthenticated()" />
 
 		<!-- 登录页面、登录功能验证放行 -->
 		<security:intercept-url pattern="/loginPath" access="permitAll()" />
 		<security:intercept-url pattern="/user/login" access="permitAll()" />
 		<security:intercept-url pattern="/user/logout" access="permitAll()" />
 
-		<security:intercept-url pattern="/product/add" access="hasRole('ROLE_A')" />
-		<security:intercept-url pattern="/product/delete" access="hasRole('ROLE_A')" />
-		<security:intercept-url pattern="/product/list" access="hasRole('ROLE_B')" />
-		<security:intercept-url pattern="/product/update" access="hasRole('ROLE_B')" />
+		<security:intercept-url pattern="/product/add" access="hasRole('ROLE_ADD_PRODUCT')" />
+		<security:intercept-url pattern="/product/delete" access="hasRole('ROLE_DELETE_PRODUCT')" />
+		<security:intercept-url pattern="/product/list" access="hasRole('ROLE_LIST_PRODUCT')" />
+		<security:intercept-url pattern="/product/update" access="hasRole('ROLE_UPDATE_PRODUCT')" />
 
 		<!-- spring security 默认登录URL以及处理逻辑 -->
 		<!-- <security:form-login /> -->
@@ -37,15 +37,27 @@
 		<security:access-denied-handler error-page="/403" />
 	</security:http>
 
+	<!-- 使用xml配置 -->
+	<!-- <security:authentication-manager> -->
+	<!-- <security:authentication-provider> -->
+	<!-- <security:user-service> -->
+	<!-- <security:user name="a" password="a" authorities="ROLE_A" /> -->
+	<!-- <security:user name="b" password="b" authorities="ROLE_B" /> -->
+	<!-- <security:user name="c" password="c" authorities="ROLE_B" /> -->
+	<!-- <security:user name="d" password="d" authorities="ROLE_B" /> -->
+	<!-- </security:user-service> -->
+	<!-- </security:authentication-provider> -->
+	<!-- </security:authentication-manager> -->
+
+	<!-- 使用数据库 -->
 	<security:authentication-manager>
-		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="a" password="a" authorities="ROLE_A" />
-				<security:user name="b" password="b" authorities="ROLE_B" />
-				<security:user name="c" password="c" authorities="ROLE_B" />
-				<security:user name="d" password="d" authorities="ROLE_B" />
-			</security:user-service>
+		<security:authentication-provider user-service-ref="customUserDetailService">
+			<!-- <security:password-encoder hash="bcrypt"></security:password-encoder> -->
 		</security:authentication-provider>
+
 	</security:authentication-manager>
+
+	<bean id="customUserDetailService" class="com.xywei.security.CustomUserDetailService"></bean>
+
 
 </beans>
