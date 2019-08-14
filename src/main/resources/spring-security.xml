@@ -31,7 +31,7 @@
 		<!-- <security:form-login /> -->
 		<security:intercept-url pattern="/**" access="hasAnyRole('ROLE_A','ROLE_B')" />
 		<!-- login-page：跳转到自定义登录页面 ，login-processing-url：覆盖spring security默认的登录URL -->
-		<security:form-login login-page="/loginPath" login-processing-url="/user/login" />
+		<security:form-login login-page="/loginPath" login-processing-url="/user/login"  />
 		<!-- <security:logout logout-url="/user/logout" /> -->
 		<security:csrf disabled="true" />
 		<security:access-denied-handler error-page="/403" />
@@ -52,6 +52,7 @@
 	<!-- 使用数据库 -->
 	<security:authentication-manager>
 		<security:authentication-provider user-service-ref="customUserDetailService">
+			<!-- usetTest.java文件里面事先使用加密更新密码 -->
 			<security:password-encoder hash="bcrypt"></security:password-encoder>
 		</security:authentication-provider>
 
