@@ -31,10 +31,12 @@
 		<!-- <security:form-login /> -->
 		<security:intercept-url pattern="/**" access="hasAnyRole('ROLE_A','ROLE_B')" />
 		<!-- login-page：跳转到自定义登录页面 ，login-processing-url：覆盖spring security默认的登录URL -->
-		<security:form-login login-page="/loginPath" login-processing-url="/user/login"  />
+		<security:form-login login-page="/loginPath" login-processing-url="/user/login" />
 		<!-- <security:logout logout-url="/user/logout" /> -->
 		<security:csrf disabled="true" />
 		<security:access-denied-handler error-page="/403" />
+		<!-- 使用remember-me的前提，该资源一定要被允许全部或者有某一权限的认证的 ，不能设置为isFullyAuthentication() -->
+		<security:remember-me token-validity-seconds="120" token-repository-ref="jdbcTokenRepositoryImpl" />
 	</security:http>
 
 	<!-- 使用xml配置 -->
@@ -59,6 +61,9 @@
 	</security:authentication-manager>
 
 	<bean id="customUserDetailService" class="com.xywei.security.CustomUserDetailService"></bean>
-
-
+	<!-- 记住我remember-me，固定写法 -->
+	<bean id="jdbcTokenRepositoryImpl" class="org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="createTableOnStartup" value="true" />
+	</bean>
 </beans>

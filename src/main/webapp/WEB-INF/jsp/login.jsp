@@ -10,7 +10,7 @@
 		<form action="${pageContext.request.contextPath }/user/login" method="POST">
 			username:<input type="text" name="username" /><br /> 
 			password:<input type="password" name="password" /><br />
-			<input type="submit" value="提交" />
+			<input type="submit" value="提交" />&nbsp;&nbsp;记住我<input type="checkbox" name="remember-me" value="true"/>
 		</form>
 	</div>
 </body>

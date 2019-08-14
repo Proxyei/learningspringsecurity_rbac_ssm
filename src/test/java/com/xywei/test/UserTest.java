@@ -19,7 +19,7 @@ public class UserTest extends TestUnit {
 	@Test
 	public void testUser() {
 
-		String username = "A";
+		String username = "a";
 		User user = userMapper.findUserByUsername(username);
 		System.out.println("user>>>>>>>>>>>:" + user);
 
