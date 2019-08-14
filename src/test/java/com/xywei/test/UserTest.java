@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.xywei.domain.Permission;
 import com.xywei.domain.User;
@@ -37,4 +39,13 @@ public class UserTest extends TestUnit {
 		}
 
 	}
+
+	@Test
+	public void testUpdatePassword() {
+
+		PasswordEncoder encoder = new BCryptPasswordEncoder();
+		System.out.println(encoder.encode("1"));
+
+	}
+
 }

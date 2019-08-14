@@ -11,4 +11,5 @@ public interface UserMapper {
 
 	List<Permission> findPermissionsByUsername(String username);
 
+	void updateUserPassword(User user);
 }
