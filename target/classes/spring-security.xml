@@ -42,6 +42,8 @@
 			<security:user-service>
 				<security:user name="a" password="a" authorities="ROLE_A" />
 				<security:user name="b" password="b" authorities="ROLE_B" />
+				<security:user name="c" password="c" authorities="ROLE_B" />
+				<security:user name="d" password="d" authorities="ROLE_B" />
 			</security:user-service>
 		</security:authentication-provider>
 	</security:authentication-manager>
