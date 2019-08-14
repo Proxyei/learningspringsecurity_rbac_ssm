@@ -52,7 +52,7 @@
 	<!-- 使用数据库 -->
 	<security:authentication-manager>
 		<security:authentication-provider user-service-ref="customUserDetailService">
-			<!-- <security:password-encoder hash="bcrypt"></security:password-encoder> -->
+			<security:password-encoder hash="bcrypt"></security:password-encoder>
 		</security:authentication-provider>
 
 	</security:authentication-manager>

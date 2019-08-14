@@ -25,7 +25,7 @@
 	</select>
 
 	<select id="updateUserPassword" parameterType="user">
-		UPDATE SYS_USER SET USERNAME=#{username}
+		UPDATE SYS_USER SET PASSWORD=#{password} WHERE USERNAME=#{username}
 	</select>
 
 

@@ -44,7 +44,13 @@ public class UserTest extends TestUnit {
 	public void testUpdatePassword() {
 
 		PasswordEncoder encoder = new BCryptPasswordEncoder();
-		System.out.println(encoder.encode("1"));
+
+		User user = new User();
+		user.setUsername("a");
+		String pwd= encoder.encode("1");
+		user.setPassword(pwd);
+		System.out.println(pwd);
+		userMapper.updateUserPassword(user);
 
 	}
 
