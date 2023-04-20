@@ -124,11 +124,12 @@ DROP TABLE IF EXISTS `user_test`;
 CREATE TABLE `user_test` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
+  `desc` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_test
 -- ----------------------------
-INSERT INTO `user_test` VALUES ('1', 'AAAAA');
-INSERT INTO `user_test` VALUES ('2', 'BBBB');
+INSERT INTO `user_test` VALUES ('1', 'AAAAA', '');
+INSERT INTO `user_test` VALUES ('2', 'BBBB', '');
